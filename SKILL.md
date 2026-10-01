@@ -1,39 +1,39 @@
 ---
 name: arina-document-intelligence-api-typescript-sdk
-description: "TypeScript SDK for Arina Document Intelligence API. Use when writing TypeScript code that calls Arina Document Intelligence API with the @arina-ai/arina-grid-di package: installing it, constructing and authenticating the client, and calling API operations."
+description: "TypeScript SDK for Arina Document Intelligence API. Use when writing TypeScript code that calls Arina Document Intelligence API with the @arina_ai_test/arina-grid-di package: installing it, constructing and authenticating the client, and calling API operations."
 ---
 
 # Arina Document Intelligence API TypeScript SDK
 
-Generated TypeScript client for Arina Document Intelligence API, published as `@arina-ai/arina-grid-di`. Use the generated client instead of hand-writing HTTP requests.
+Generated TypeScript client for Arina Document Intelligence API, published as `@arina_ai_test/arina-grid-di`. Use the generated client instead of hand-writing HTTP requests.
 
 ## Install
 
 ```sh
-npm install @arina-ai/arina-grid-di
+npm install @arina_ai_test/arina-grid-di
 ```
 
 ## Client setup and authentication
 
 ```ts
-import ArinaDocumentIntelligenceAPI from '@arina-ai/arina-grid-di';
+import ArinaDocumentIntelligenceAPI from '@arina_ai_test/arina-grid-di';
 
 const client = new ArinaDocumentIntelligenceAPI({
-  apiKeyAuth: process.env['API_KEY_AUTH'], // defaults to the API_KEY_AUTH env var
+  apiKey: process.env['ARINA_GRID_API_KEY'], // defaults to the ARINA_GRID_API_KEY env var
 });
 ```
 
 Provide credentials using the options below. Environment variables are read automatically when the target runtime supports them:
 
-- `apiKeyAuth` (env: `API_KEY_AUTH`) — Credential for the ApiKeyAuth scheme.
+- `apiKey` (env: `ARINA_GRID_API_KEY`) — Credential for the ApiKey scheme.
 
 ## Calling operations
 
 ```ts
-import ArinaDocumentIntelligenceAPI from '@arina-ai/arina-grid-di';
+import ArinaDocumentIntelligenceAPI from '@arina_ai_test/arina-grid-di';
 
 const client = new ArinaDocumentIntelligenceAPI({
-  apiKeyAuth: process.env['API_KEY_AUTH'], // defaults to the API_KEY_AUTH env var
+  apiKey: process.env['ARINA_GRID_API_KEY'], // defaults to the ARINA_GRID_API_KEY env var
 });
 
 const extractRun = await client.extraction.createExtractRun({
@@ -52,7 +52,7 @@ Method names, parameter shapes, and response types are generated from the API de
 Non-success responses throw generated API errors. Error objects expose status, headers, response body, and request metadata where the target runtime supports it.
 
 ```ts
-import { APIError } from '@arina-ai/arina-grid-di';
+import { APIError } from '@arina_ai_test/arina-grid-di';
 
 try {
   const extractRun = await client.extraction.createExtractRun({
