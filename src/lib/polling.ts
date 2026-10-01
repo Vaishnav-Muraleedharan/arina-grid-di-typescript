@@ -73,6 +73,7 @@ function sleep(ms: number, signal?: AbortSignal): Promise<void> {
 
 async function poll<R extends Run>(fetchRun: () => Promise<R>, options: WaitOptions): Promise<R> {
   const { timeoutMs, intervalMs, maxIntervalMs, raiseOnFailure } = settings(options);
+  options.signal?.throwIfAborted(); // an already-aborted signal must not cost a request
   const deadline = Date.now() + timeoutMs;
   let delay = intervalMs;
   for (;;) {
