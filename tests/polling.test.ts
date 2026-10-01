@@ -94,6 +94,16 @@ describe('waitForExtractRun', () => {
     expect(requests).toHaveLength(2);
   });
 
+  it('rejects immediately on an already-aborted signal, without a request', async () => {
+    const { client, requests } = makeClient(scripted('extract_run', ['PROCESSING']));
+    const controller = new AbortController();
+    controller.abort(new Error('already stopped'));
+    await expect(
+      waitForExtractRun(client, 'run_1', { timeoutMs: 5_000, signal: controller.signal }),
+    ).rejects.toThrow('already stopped');
+    expect(requests).toHaveLength(0);
+  });
+
   it('can be aborted', async () => {
     const { client } = makeClient(scripted('extract_run', ['PROCESSING']));
     const controller = new AbortController();
