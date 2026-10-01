@@ -1,6 +1,6 @@
 {
   "name": "@arina_ai_test/arina-grid-di",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "TypeScript SDK for the Arina Document Intelligence API: schema-driven extraction with spatial citations, layout parsing, and reusable extractors.",
   "author": "Arina",
   "license": "Apache-2.0",
